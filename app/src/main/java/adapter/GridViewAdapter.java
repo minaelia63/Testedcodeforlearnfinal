@@ -22,6 +22,8 @@ import java.util.ArrayList;
  */
 //this is not used just for try only
 //this is my tries if the user need to change the view only
+
+    //this is if iuse it in linear view only
 public class GridViewAdapter extends BaseAdapter {
 
     //Imageloader to load images

@@ -19,7 +19,7 @@ import java.util.ArrayList;
  * Created by mina on 3/27/2017.
  */
 //public class GridViewadapter2 extends ArrayAdapter<GridItem>
-    //this is work adapter
+    //this is work adapter one iuse in main activity
 
 public class GridViewadapter2 extends BaseAdapter {
 
