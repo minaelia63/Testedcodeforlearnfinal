@@ -22,7 +22,7 @@ import java.util.ArrayList;
  */
 //this is not used just for try only
 //this is my tries if the user need to change the view only
-
+//
     //this is if use it in linearlayout view only
 public class GridViewAdapter extends BaseAdapter {
 
