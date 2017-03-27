@@ -1,4 +1,4 @@
-package com.example.mina.testedcodeforlearn;
+package adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,6 +9,9 @@ import android.widget.TextView;
 
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.NetworkImageView;
+import Volleycachingandloading.CustomVolleyRequest;
+import Model.GridItem;
+import com.example.mina.testedcodeforlearn.R;
 
 import java.util.ArrayList;
 

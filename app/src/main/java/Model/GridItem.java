@@ -1,4 +1,4 @@
-package com.example.mina.testedcodeforlearn;
+package Model;
 
 import android.graphics.Bitmap;
 

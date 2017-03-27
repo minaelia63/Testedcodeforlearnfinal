@@ -1,25 +1,19 @@
-package com.example.mina.testedcodeforlearn;
+package adapter;
 
-import android.app.Activity;
 import android.content.Context;
-import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.GridLayoutAnimationController;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
-import android.widget.FrameLayout;
 import android.widget.GridView;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.NetworkImageView;
-import com.squareup.picasso.Picasso;
+import Volleycachingandloading.CustomVolleyRequest;
+import com.example.mina.testedcodeforlearn.R;
 
 import java.util.ArrayList;
 
@@ -27,7 +21,7 @@ import java.util.ArrayList;
  * Created by mina on 3/24/2017.
  */
 //this is not used just for try only
-
+//this is my tries if the user need to change the view only
 public class GridViewAdapter extends BaseAdapter {
 
     //Imageloader to load images

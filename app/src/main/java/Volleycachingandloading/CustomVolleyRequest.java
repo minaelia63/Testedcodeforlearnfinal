@@ -1,4 +1,4 @@
-package com.example.mina.testedcodeforlearn;
+package Volleycachingandloading;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -16,8 +16,8 @@ import com.android.volley.toolbox.ImageLoader;
  * Created by mina on 3/24/2017.
  */
 //To display the images from the URL,
-// I am going to use Volley’s NetworkImageView same as we did in many previous posts.
-// So first create a class named CustomVolleyRequest.java and write the following code.
+// I am going to use Volley’s NetworkImageView and used it in gridadapter2
+//
 public class CustomVolleyRequest {
     private static CustomVolleyRequest customVolleyRequest;
     private static Context context;
