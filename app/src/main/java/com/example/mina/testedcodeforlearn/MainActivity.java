@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -23,6 +24,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 
 import Model.GridItem;
@@ -80,9 +86,11 @@ public class MainActivity extends AppCompatActivity {
             //added
 
             mGridAdapter2 = new GridViewadapter2(getApplicationContext());
-
+            new DownloadTask().execute(FEED_URL);
             //
-            getData();
+           // getData();
+
+
          /*   mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
 
@@ -231,6 +239,109 @@ if(haveNetworkConnection()) {
        // mGridView.setAdapter(mGridAdapter);
 
     }
+    //added
+    class DownloadTask extends AsyncTask<String,Integer,String> {
+
+
+        ProgressDialog dialog = new ProgressDialog(MainActivity.this);
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            dialog.setTitle("Download");
+            dialog.setMessage("Downloading...");
+            dialog.show();
+
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+            String urlStr = params[0];
+
+            try {
+
+                URL u = new URL(urlStr);
+                BufferedReader br = new BufferedReader(new InputStreamReader(u.openStream()));
+                String line = br.readLine();
+                StringBuilder sb = new StringBuilder();
+                while (line != null) {
+                    sb.append(line + "\n");
+                    line = br.readLine();
+                }
+
+                return sb.toString();
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            dialog.dismiss();
+
+
+/*
+            try {
+                JSONArray jsonArray=new JSONArray(s);
+
+                for (int i = 0; i < jsonArray.length(); i++) {
+                    JSONObject jsonUser=jsonArray.getJSONObject(i);
+
+                    String name=jsonUser.getString("name");
+                    Toast.makeText(MainActivity.this, name, Toast.LENGTH_SHORT).show();
+                }
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+
+        }*/
+            if(haveNetworkConnection()) {
+
+
+                //Creating a json array request to get the json from our api
+                JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(FEED_URL,
+                        new Response.Listener<JSONArray>() {
+                            @Override
+                            public void onResponse(JSONArray response) {
+                                //Dismissing the progressdialog on response
+                                dialog.dismiss();
+
+                                //Displaying our grid
+                                showGrid(response);
+                            }
+                        },
+                        new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+
+                            }
+                        }
+                );
+
+                //Creating a request queue
+                RequestQueue requestQueue = Volley.newRequestQueue(MainActivity.this);
+                //Adding our request to the queue
+                requestQueue.add(jsonArrayRequest);
+            }
+            else
+            {
+                Toast.makeText(MainActivity.this, "there is not internet", Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
+            }
+
+
+        }
+    }
+
+    //
     private boolean haveNetworkConnection() {
        haveConnectedWifi = false;
         haveConnectedMobile = false;

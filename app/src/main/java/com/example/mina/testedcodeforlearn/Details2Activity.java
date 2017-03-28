@@ -15,7 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
-
+//this is work activity
 public class Details2Activity extends AppCompatActivity {
     private CollapsingToolbarLayout collapsingToolbarLayout;
     private TextView descriptionproduct;
@@ -72,7 +72,7 @@ public class Details2Activity extends AppCompatActivity {
         TextView title = (TextView) findViewById(R.id.title);
         title.setText(description);
         TextView price2 = (TextView) findViewById(R.id.price);
-        price2.setText(price);
+        price2.setText("$"+price+"");
     }
     private void applyPalette(Palette palette) {
         int primaryDark = getResources().getColor(R.color.colorPrimary);

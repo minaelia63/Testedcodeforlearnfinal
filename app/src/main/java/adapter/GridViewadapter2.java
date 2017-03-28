@@ -129,6 +129,11 @@ public class GridViewadapter2 extends BaseAdapter {
 //        holder.description = new TextView(mContext);
         holder.getDescription().setText(item.getTitle()+"");
       //  holder.price = new TextView(mContext);
+        //added
+
+
+
+        //
         holder.getPrice().setText("$"+item.getPrice()+"");
       //  holder.imageView.setImageResource(item.getImage().indexOf(position));
 
@@ -141,7 +146,7 @@ public class GridViewadapter2 extends BaseAdapter {
         //Setting the image url to load
        holder.getImageView().setImageUrl(item.getImage(),imageLoader);
 
-holder.imageView.setTag(item);
+//holder.imageView.setTag(item);
 
         return row;
     }
