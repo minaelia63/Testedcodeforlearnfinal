@@ -129,7 +129,7 @@ public class GridViewadapter2 extends BaseAdapter {
 //        holder.description = new TextView(mContext);
         holder.getDescription().setText(item.getTitle()+"");
       //  holder.price = new TextView(mContext);
-        holder.getPrice().setText(item.getPrice()+"");
+        holder.getPrice().setText("$"+item.getPrice()+"");
       //  holder.imageView.setImageResource(item.getImage().indexOf(position));
 
        // holder.imageView  = new NetworkImageView(mContext);

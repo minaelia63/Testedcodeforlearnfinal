@@ -113,9 +113,10 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-
+//added
+                    Intent intent = new Intent(MainActivity.this, Details2Activity.class);
                     //Pass the image title and url to DetailsActivity
-                    Intent intent = new Intent(MainActivity.this, DetailsActivity.class);
+                   // Intent intent = new Intent(MainActivity.this, DetailsActivity.class);
                     intent.putExtra("title", names.get(position));
                     intent.putExtra("image", images.get(position));
                    intent.putExtra("price", prices.get(position));

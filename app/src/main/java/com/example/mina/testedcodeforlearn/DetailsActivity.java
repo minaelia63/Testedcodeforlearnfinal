@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.squareup.picasso.Picasso;
-
+// this is not used but for different view
 public class DetailsActivity extends AppCompatActivity {
 
     private TextView descriptionproduct;
