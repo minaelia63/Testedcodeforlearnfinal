@@ -31,14 +31,14 @@ public class Details2Activity extends AppCompatActivity {
         String price = getIntent().getStringExtra("price");
         String width = getIntent().getStringExtra("width");
         String height = getIntent().getStringExtra("height");
-        descriptionproduct = (TextView) findViewById(R.id.textView);
-        priceproduct = (TextView) findViewById(R.id.textView2);
-        imageView = (ImageView) findViewById(R.id.imageViewproduct);
+        descriptionproduct = (TextView) findViewById(R.id.title);
+        priceproduct = (TextView) findViewById(R.id.price);
+        imageView = (ImageView) findViewById(R.id.image);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
-        ///ic_arrow_back_white_36dp this need graphic designer with  photoshop
-        toolbar.setNavigationIcon(R.drawable.ic_arrow_back_white_36dp);
+
+        toolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,4 +90,7 @@ public class Details2Activity extends AppCompatActivity {
         fab.setRippleColor(lightVibrantColor);
         fab.setBackgroundTintList(ColorStateList.valueOf(vibrantColor));
     }
+
+
+
 }

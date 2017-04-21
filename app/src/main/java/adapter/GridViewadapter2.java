@@ -14,6 +14,7 @@ import Model.GridItem;
 import com.example.mina.testedcodeforlearn.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by mina on 3/27/2017.
@@ -40,14 +41,14 @@ public class GridViewadapter2 extends BaseAdapter {
       this.mContext = mContext;
   }
 
-    /**
-     * Updates grid data and refresh grid items.
-     * @param
-     */
-    /*public void setGridData(ArrayList<GridItem> mGridData) {
-        this.mGridData = mGridData;
-        notifyDataSetChanged();
-    }*/
+
+    public void addListItemToAdapter(ArrayList<GridItem> list) {
+        //Add list to current array list of data
+        mGridData.addAll(list);
+        //Notify UI
+        this.notifyDataSetChanged();
+    }
+    //
     public void additem(GridItem GridData) {
         mGridData.add(GridData);
         notifyDataSetChanged();
